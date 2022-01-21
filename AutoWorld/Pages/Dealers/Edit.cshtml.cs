@@ -1,0 +1,78 @@
+﻿#nullable disable
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using AutoWorld.Data;
+using AutoWorld.Models;
+
+namespace AutoWorld.Pages.Dealers
+{
+    public class EditModel : PageModel
+    {
+        private readonly AutoWorld.Data.AutoWorldContext _context;
+
+        public EditModel(AutoWorld.Data.AutoWorldContext context)
+        {
+            _context = context;
+        }
+
+        [BindProperty]
+        public DealerAuto DealerAuto { get; set; }
+
+        public async Task<IActionResult> OnGetAsync(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            DealerAuto = await _context.DealerAuto.FirstOrDefaultAsync(m => m.ID == id);
+
+            if (DealerAuto == null)
+            {
+                return NotFound();
+            }
+            return Page();
+        }
+
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see https://aka.ms/RazorPagesCRUD.
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+
+            _context.Attach(DealerAuto).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!DealerAutoExists(DealerAuto.ID))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return RedirectToPage("./Index");
+        }
+
+        private bool DealerAutoExists(int id)
+        {
+            return _context.DealerAuto.Any(e => e.ID == id);
+        }
+    }
+}

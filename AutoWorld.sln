@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoWorld", "AutoWorld\AutoWorld.csproj", "{21B6B039-FC42-4209-9A7F-C76667146BA0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21B6B039-FC42-4209-9A7F-C76667146BA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21B6B039-FC42-4209-9A7F-C76667146BA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21B6B039-FC42-4209-9A7F-C76667146BA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21B6B039-FC42-4209-9A7F-C76667146BA0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {91E9F289-5978-4261-A685-1D8544A35EEF}
+	EndGlobalSection
+EndGlobal
